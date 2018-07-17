@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockApp.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Login"
+             BackgroundColor="White">
+
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Login}"
+            Padding="10,20,10,5">
+            <Image
+                VerticalOptions="CenterAndExpand"
+                Source="cart" 
+                WidthRequest="250"/>
+            
+            
+            <Grid
+                VerticalOptions="CenterAndExpand"
+                Margin="0, 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Text="Email" />
+                <Entry
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Keyboard="Email"
+                    Placeholder="Enter your email..."
+                    Text="{Binding Email, Mode=TwoWay}"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    Text="Password"/>
+                <Entry
+                    Grid.Row="1"
+                    Grid.Column="1"
+                Placeholder="Enter your password..." 
+                IsPassword="True"
+                    Text="{Binding Password, Mode=TwoWay}"/>
+            </Grid>
+            <StackLayout 
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Label 
+                    Text="Remeber me?"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand" />
+                <Switch
+                    HorizontalOptions="End"
+                    IsToggled="{Binding RememberMe, Mode=TwoWay}"/>
+            </StackLayout>
+            <ActivityIndicator
+                VerticalOptions="CenterAndExpand"
+                IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                IsVisible="{Binding IsRunning, Mode=TwoWay}"/>
+            <Label 
+                VerticalOptions="CenterAndExpand"
+                Text="Forget your Password?"
+                TextColor="Blue"
+                HorizontalOptions="Center"
+                FontSize="Medium"/>
+            <StackLayout
+                VerticalOptions="EndAndExpand"
+                Margin="0, 20">
+                <Button
+                    Text="Login"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    BorderRadius="23"
+                    Command="{Binding LoginCommand}"/>
+
+                <Button
+                    Text="Register"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    BorderRadius="23"
+                    Command="{Binding RegisterCommand}"/>
+            </StackLayout>
+            
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
